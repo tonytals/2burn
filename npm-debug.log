@@ -1,0 +1,49 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Users\\tonytals\\AppData\\Local\\.meteor\\packages\\meteor-tool\\1.4.1_1\\mt-os.windows.x86_32\\dev_bundle\\bin\\node.exe',
+1 verbose cli   'C:\\Users\\tonytals\\AppData\\Local\\.meteor\\packages\\meteor-tool\\1.4.1_1\\mt-os.windows.x86_32\\dev_bundle\\lib\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '--save',
+1 verbose cli   'iandouglas:accounts-ui-semantic-ui' ]
+2 info using npm@3.10.6
+3 info using node@v4.5.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData iandouglas:accounts-ui-semantic-ui
+8 silly fetchPackageMetaData Error: Unsupported URL Type: iandouglas:accounts-ui-semantic-ui
+8 silly fetchPackageMetaData     at parseUrl (C:\Users\tonytals\AppData\Local\.meteor\packages\meteor-tool\1.4.1_1\mt-os.windows.x86_32\dev_bundle\lib\node_modules\npm\node_modules\npm-package-arg\npa.js:186:13)
+8 silly fetchPackageMetaData     at npa (C:\Users\tonytals\AppData\Local\.meteor\packages\meteor-tool\1.4.1_1\mt-os.windows.x86_32\dev_bundle\lib\node_modules\npm\node_modules\npm-package-arg\npa.js:79:12)
+8 silly fetchPackageMetaData     at module.exports (C:\Users\tonytals\AppData\Local\.meteor\packages\meteor-tool\1.4.1_1\mt-os.windows.x86_32\dev_bundle\lib\node_modules\npm\node_modules\realize-package-specifier\index.js:12:15)
+8 silly fetchPackageMetaData     at fetchPackageMetadata (C:\Users\tonytals\AppData\Local\.meteor\packages\meteor-tool\1.4.1_1\mt-os.windows.x86_32\dev_bundle\lib\node_modules\npm\lib\fetch-package-metadata.js:54:12)
+8 silly fetchPackageMetaData     at fetchMetadataWithVersion (C:\Users\tonytals\AppData\Local\.meteor\packages\meteor-tool\1.4.1_1\mt-os.windows.x86_32\dev_bundle\lib\node_modules\npm\lib\install\deps.js:220:14)
+8 silly fetchPackageMetaData     at C:\Users\tonytals\AppData\Local\.meteor\packages\meteor-tool\1.4.1_1\mt-os.windows.x86_32\dev_bundle\lib\node_modules\npm\lib\install\deps.js:233:16
+8 silly fetchPackageMetaData     at C:\Users\tonytals\AppData\Local\.meteor\packages\meteor-tool\1.4.1_1\mt-os.windows.x86_32\dev_bundle\lib\node_modules\npm\node_modules\slide\lib\async-map.js:52:35
+8 silly fetchPackageMetaData     at Array.forEach (native)
+8 silly fetchPackageMetaData     at C:\Users\tonytals\AppData\Local\.meteor\packages\meteor-tool\1.4.1_1\mt-os.windows.x86_32\dev_bundle\lib\node_modules\npm\node_modules\slide\lib\async-map.js:52:11
+8 silly fetchPackageMetaData     at Array.forEach (native)
+8 silly fetchPackageMetaData  error for iandouglas:accounts-ui-semantic-ui [Error: Unsupported URL Type: iandouglas:accounts-ui-semantic-ui]
+9 silly rollbackFailedOptional Starting
+10 silly rollbackFailedOptional Finishing
+11 silly runTopLevelLifecycles Starting
+12 silly runTopLevelLifecycles Finishing
+13 silly install printInstalled
+14 verbose stack Error: Unsupported URL Type: iandouglas:accounts-ui-semantic-ui
+14 verbose stack     at parseUrl (C:\Users\tonytals\AppData\Local\.meteor\packages\meteor-tool\1.4.1_1\mt-os.windows.x86_32\dev_bundle\lib\node_modules\npm\node_modules\npm-package-arg\npa.js:186:13)
+14 verbose stack     at npa (C:\Users\tonytals\AppData\Local\.meteor\packages\meteor-tool\1.4.1_1\mt-os.windows.x86_32\dev_bundle\lib\node_modules\npm\node_modules\npm-package-arg\npa.js:79:12)
+14 verbose stack     at module.exports (C:\Users\tonytals\AppData\Local\.meteor\packages\meteor-tool\1.4.1_1\mt-os.windows.x86_32\dev_bundle\lib\node_modules\npm\node_modules\realize-package-specifier\index.js:12:15)
+14 verbose stack     at fetchPackageMetadata (C:\Users\tonytals\AppData\Local\.meteor\packages\meteor-tool\1.4.1_1\mt-os.windows.x86_32\dev_bundle\lib\node_modules\npm\lib\fetch-package-metadata.js:54:12)
+14 verbose stack     at fetchMetadataWithVersion (C:\Users\tonytals\AppData\Local\.meteor\packages\meteor-tool\1.4.1_1\mt-os.windows.x86_32\dev_bundle\lib\node_modules\npm\lib\install\deps.js:220:14)
+14 verbose stack     at C:\Users\tonytals\AppData\Local\.meteor\packages\meteor-tool\1.4.1_1\mt-os.windows.x86_32\dev_bundle\lib\node_modules\npm\lib\install\deps.js:233:16
+14 verbose stack     at C:\Users\tonytals\AppData\Local\.meteor\packages\meteor-tool\1.4.1_1\mt-os.windows.x86_32\dev_bundle\lib\node_modules\npm\node_modules\slide\lib\async-map.js:52:35
+14 verbose stack     at Array.forEach (native)
+14 verbose stack     at C:\Users\tonytals\AppData\Local\.meteor\packages\meteor-tool\1.4.1_1\mt-os.windows.x86_32\dev_bundle\lib\node_modules\npm\node_modules\slide\lib\async-map.js:52:11
+14 verbose stack     at Array.forEach (native)
+15 verbose cwd C:\Users\tonytals\Documents\meteor\2burn
+16 error Windows_NT 6.1.7601
+17 error argv "C:\\Users\\tonytals\\AppData\\Local\\.meteor\\packages\\meteor-tool\\1.4.1_1\\mt-os.windows.x86_32\\dev_bundle\\bin\\node.exe" "C:\\Users\\tonytals\\AppData\\Local\\.meteor\\packages\\meteor-tool\\1.4.1_1\\mt-os.windows.x86_32\\dev_bundle\\lib\\node_modules\\npm\\bin\\npm-cli.js" "install" "--save" "iandouglas:accounts-ui-semantic-ui"
+18 error node v4.5.0
+19 error npm  v3.10.6
+20 error Unsupported URL Type: iandouglas:accounts-ui-semantic-ui
+21 error If you need help, you may report this error at:
+21 error     <https://github.com/npm/npm/issues>
+22 verbose exit [ 1, true ]
