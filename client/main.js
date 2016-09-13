@@ -15,5 +15,6 @@ angular.module('2b', [
   uiRouter,
   'accounts.ui',
   appRoutes.name,
-  addProduct.name
+  addProduct.name,
+  'ngCart'
 ]);
