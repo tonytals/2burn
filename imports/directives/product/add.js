@@ -5,9 +5,15 @@ export default angular.module('app.addProduct', []).directive('addProduct', func
   return {
     retrict: 'E',
     templateUrl: 'imports/ui/product/add.html',
-    controller: 'aPC', //Adicionar Produto Controller (add Product Controller)
-    controllerAs: function (){
+    controllerAs: 'aPC', //Adicionar Produto Controller (add Product Controller)
+    controller: function (){
 
+      this.newProduct = {};
+
+      this.saveProduct = () => {
+        Meteor.call('products.addProduct', this.newProduct);
+        //console.log(this.newProduct);
+      }
     }
   }
 
