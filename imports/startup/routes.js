@@ -19,6 +19,12 @@ export default angular.module('app.routes', []).config(($stateProvider, $locatio
         url: '/product/add',
         template: '<add-product></add-product>'
       }
+    )
+    .state(
+      'viewCart', {
+        url: '/cart',
+        template: '<div class="ui container"><ngcart-cart></ngcart-cart></div>'
+      }
     );
 
 });

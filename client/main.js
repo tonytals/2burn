@@ -17,4 +17,11 @@ angular.module('2b', [
   appRoutes.name,
   addProduct.name,
   'ngCart'
-]);
+]).controller('toBurnController', function ($scope) {
+  $scope.animateCart = function(){
+    $('.summaryCart')
+      .transition('fade up')
+      .transition('fade up')
+      .transition('pulse');
+  }
+});
