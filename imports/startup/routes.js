@@ -23,8 +23,16 @@ export default angular.module('app.routes', []).config(($stateProvider, $locatio
     .state(
       'viewCart', {
         url: '/cart',
-        template: '<div class="ui container"><ngcart-cart></ngcart-cart></div>'
+        template: '<div class="ui container"><ngcart-cart></ngcart-cart></div>',
+        resolve: {
+          currentUser($q) {
+          if (Meteor.userId() === null) {
+            return $q.reject();
+          } else {
+            return $q.resolve();
+        }
       }
-    );
+    }
+  });
 
 });

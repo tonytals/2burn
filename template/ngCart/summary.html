@@ -1,11 +1,12 @@
 <div class="ui ordered horizontal list">
   <div class="item summaryCart" id="summaryCart">
-    <i class="shop icon avatar"></i>
+  <a ui-sref="viewCart"><i class="shop icon avatar"></i>
     <div class="content" >
       <div class="header center aligned">{{ ngCart.getTotalItems() }}
         <ng-pluralize count="ngCart.getTotalItems()" when="{1: 'item', 0: 'item', 'other':'itens'}"></ng-pluralize>
       </div>
       {{ ngCart.totalCost() | currency : "R$ " }}
     </div>
+    </a>
   </div>
 </div>

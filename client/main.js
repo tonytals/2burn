@@ -23,5 +23,8 @@ angular.module('2b', [
       .transition('fade up')
       .transition('fade up')
       .transition('pulse');
+  },
+  $scope.isLoggedIn = function(){
+    return !!Meteor.userId();
   }
 });
