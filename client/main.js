@@ -7,6 +7,7 @@ import '../imports/ui/partials/navbar.html';
 import './main.html';
 
 import appRoutes from '../imports/startup/routes';
+import '../imports/startup/ngCart';
 import '../imports/startup/accounts';
 import addProduct from '../imports/directives/product/add';
 
@@ -17,7 +18,7 @@ angular.module('2b', [
   appRoutes.name,
   addProduct.name,
   'ngCart'
-]).controller('toBurnController', function ($scope) {
+]).controller('toBurnController', function ($scope, ngCart) {
   $scope.animateCart = function(){
     $('.summaryCart')
       .transition('fade up')
@@ -26,5 +27,9 @@ angular.module('2b', [
   },
   $scope.isLoggedIn = function(){
     return !!Meteor.userId();
-  }
+  },
+  $scope.rMC = function(){
+    console.log("rMC");
+  }//,
+  //ngCart.setCartOwner(Meteor.userId());
 });

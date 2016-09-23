@@ -3,7 +3,7 @@ import '../ui/partials/hero-unit.html';
 export default angular.module('app.routes', []).config(($stateProvider, $locationProvider, $urlRouterProvider) => {
 
 
-  $urlRouterProvider.otherwise('/'); //caso digite uma url inxistente redireciona para o HOME, /
+  //$urlRouterProvider.otherwise('/'); //caso digite uma url inxistente redireciona para o HOME, /
 
   $locationProvider.html5Mode(true);
 
