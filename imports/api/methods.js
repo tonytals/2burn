@@ -8,11 +8,11 @@ Meteor.methods({
   },
 
   'cart.registerMyCart' (myCart){
-   Cart.update({ _id : myCart.cartOwner } ,
-      myCart,
-      { 'upsert' : true }
-    );
-    //console.log(myCart);
+    Cart.update({ _id : myCart.cartOwner } ,
+        myCart,
+        { 'upsert' : true }
+    );    
+    return true;
     /*** LINHA PARA CRUZAMENTO DE DADOS "carrinho" x "dono do carrinho"
        db.cart.aggregate([
        {

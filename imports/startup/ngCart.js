@@ -1,8 +1,11 @@
 'use strict';
 
+import { Cart } from '../api/cart';
+
 angular.module('ngCart', ['ngCart.directives'])
 
     .config([function () {
+
 
     }])
 
@@ -24,22 +27,6 @@ angular.module('ngCart', ['ngCart.directives'])
         } else {
             ngCart.init();
         }
-
-        Accounts.onLogin(function(){
-          /*
-            CODIGO PARA RECUPERAR O CARRINHO QUANDO USUARIO EFETUAR LOGIN
-
-          */
-            console.log("login");
-        });
-
-        Accounts.onLogout(function(){
-          /*
-            CODIGO PARA ESVAZIAR O CARRINHO QUANDO USUARIO EFETUAR LOGOUT
-
-          */
-            console.log("logout");
-        });
 
     }])
 
@@ -228,10 +215,6 @@ angular.module('ngCart', ['ngCart.directives'])
             Meteor.call('cart.registerMyCart', this.getCart());
         }
 
-        this.recoverMyCart = function () {
-          console.log("recoverMyCart");
-        }
-
     }])
 
     .factory('ngCartItem', ['$rootScope', '$log', function ($rootScope, $log) {
@@ -363,14 +346,27 @@ angular.module('ngCart', ['ngCart.directives'])
         }
     }])
 
-    .controller('CartController',['$scope', 'ngCart', function($scope, ngCart) {
+    .controller('CartController',['$scope', 'ngCart', '$reactive', function($scope, ngCart, $reactive) {
         $scope.ngCart = ngCart;
 
         if(Meteor.userId()){
-
-          ngCart.setCartOwner(Meteor.userId());
-
+            ngCart.setCartOwner(Meteor.userId());
         }
+
+        $scope.autorun(function(){
+            if (Meteor.userId()) {
+              // VERIFICAR NO FUTURO FUNÇÃO MELHOR QUE AUTORUN
+              var myCurrentCart = Meteor.subscribe('myCartQuery', function(){
+                var myCurrentCart = Cart.findOne({cartOwner: Meteor.userId()});
+                return myCurrentCart;
+              });
+
+              console.log(myCurrentCart);
+            }else{
+              ngCart.empty();
+              console.log('destroi o carrinho!');
+            }
+          });
 
     }])
 

@@ -1,7 +1,6 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
-
 import '../imports/ui/partials/navbar.html';
 
 import './main.html';
@@ -14,11 +13,12 @@ import addProduct from '../imports/directives/product/add';
 angular.module('2b', [
   angularMeteor,
   uiRouter,
-  'accounts.ui',
   appRoutes.name,
   addProduct.name,
-  'ngCart'
-]).controller('toBurnController', function ($scope, ngCart) {
+  'ngCart',
+  'accounts.ui'
+]).controller('toBurnController', ['$scope', '$reactive', function ($scope, ngCart, $reactive) {
+
   $scope.animateCart = function(){
     $('.summaryCart')
       .transition('fade up')
@@ -29,7 +29,7 @@ angular.module('2b', [
     return !!Meteor.userId();
   },
   $scope.rMC = function(){
-    console.log("rMC");
-  }//,
-  //ngCart.setCartOwner(Meteor.userId());
-});
+    console.log('rMC' + 'sidsid');
+  }
+  //,ngCart.setCartOwner(Meteor.userId());
+}]);
