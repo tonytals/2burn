@@ -18,7 +18,6 @@ angular.module('ngCart', ['ngCart.directives'])
 
         $rootScope.$on('ngCart:change', function(){
             ngCart.$save();
-            ngCart.getMyCart();
         });
 
         if (angular.isObject(store.get('cart'))) {
@@ -57,6 +56,7 @@ angular.module('ngCart', ['ngCart.directives'])
             }
 
             $rootScope.$broadcast('ngCart:change', {});
+            this.getMyCart();
         };
 
         this.getItemById = function (itemId) {
@@ -145,7 +145,7 @@ angular.module('ngCart', ['ngCart.directives'])
             var item = this.$cart.items.splice(index, 1)[0] || {};
             $rootScope.$broadcast('ngCart:itemRemoved', item);
             $rootScope.$broadcast('ngCart:change', {});
-
+            this.getMyCart();
         };
 
         this.removeItemById = function (id) {
@@ -159,6 +159,7 @@ angular.module('ngCart', ['ngCart.directives'])
             this.setCart(cart);
             $rootScope.$broadcast('ngCart:itemRemoved', item);
             $rootScope.$broadcast('ngCart:change', {});
+            this.getMyCart();
         };
 
         this.empty = function () {
@@ -349,19 +350,26 @@ angular.module('ngCart', ['ngCart.directives'])
     .controller('CartController',['$scope', 'ngCart', '$reactive', function($scope, ngCart, $reactive) {
         $scope.ngCart = ngCart;
 
-        if(Meteor.userId()){
-            ngCart.setCartOwner(Meteor.userId());
-        }
-
-        $scope.autorun(function(){
+          $scope.autorun(function(){  // VERIFICAR NO FUTURO FUNÇÃO MELHOR QUE AUTORUN
             if (Meteor.userId()) {
-              // VERIFICAR NO FUTURO FUNÇÃO MELHOR QUE AUTORUN
-              var myCurrentCart = Meteor.subscribe('myCartQuery', function(){
-                var myCurrentCart = Cart.findOne({cartOwner: Meteor.userId()});
-                return myCurrentCart;
-              });
 
-              console.log(myCurrentCart);
+              ngCart.setCartOwner(Meteor.userId());
+
+              var myCurrentCart = Meteor.subscribe('myCartQuery');
+
+              myCurrentCart = Cart.findOne({ cartOwner: Meteor.userId() });
+
+              if(myCurrentCart){//Se existir o carrinho ele remonta o mesmo
+                for(var i = 0;i < myCurrentCart.items.length; i++){
+                  ngCart.addItem(
+                    myCurrentCart.items[i]._id,
+                    myCurrentCart.items[i]._name,
+                    myCurrentCart.items[i]._price,
+                    myCurrentCart.items[i]._quantity
+                  );
+                }
+              }
+
             }else{
               ngCart.empty();
               console.log('destroi o carrinho!');

@@ -8,11 +8,16 @@ Meteor.methods({
   },
 
   'cart.registerMyCart' (myCart){
-    Cart.update({ _id : myCart.cartOwner } ,
+    console.log(myCart);
+    if(myCart.cartOwner != null){
+      Cart.update({ _id : myCart.cartOwner } ,
         myCart,
         { 'upsert' : true }
-    );    
-    return true;
+      );
+    } else {
+      console.log("Carrinho não salvo por falta do campo 'myCart.cartOwner'");
+    }
+    //return true;
     /*** LINHA PARA CRUZAMENTO DE DADOS "carrinho" x "dono do carrinho"
        db.cart.aggregate([
        {
